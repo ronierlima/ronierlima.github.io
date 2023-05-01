@@ -16,12 +16,44 @@
   }
 }
 
-body {
+body,
+#__next {
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--secondary);
+  content: "O valor da variável --secondary é " attr(data-secondary);
+
+}
+
+#shape-polygon {
+  clip-path: polygon(0 0, 46% 0, 79% 100%, 0% 100%);
+}
+
+@media (max-width: 768px) {
+  #shape-polygon {
+    display: none;
+  }
+}
+
+.button-efeito {
+  position: relative;
+  cursor: pointer;
+}
+
+.button-efeito:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0px;
+  height: 100%; /* Adicione uma altura igual a altura do elemento pai */
+  background-color: #00000075;
+  transition: all 2s ease-out;
+  z-index: 1;
+}
+
+.button-efeito:hover:before {
+
+  width: 100%;
 }
